@@ -1,0 +1,26 @@
+import requests  # Импорт библиотеки Requests
+from bs4 import BeautifulSoup
+import pyperclip
+
+
+# Основная функция
+   # URL страницы
+print ('Ссылка на страницу:')
+url = input() #'https://majornelson.com/2021/03/15/this-weeks-deals-with-gold-and-spotlight-sale-195/'
+   # Получаем страницу
+r = requests.get(url)
+   #7usd = float(74.1)
+   # Открываем файл
+soup = BeautifulSoup(r.text, 'html.parser')
+# print (soup)
+name_tovar = soup.find('h1').text
+#print (name_tovar)https://kupil-kvartiru.ru/kuhni-v-stile-neoklassika-40-foto/
+# image_tovar = soup.find(class_='cli_image srv_screenshot srv_microdata')
+# print (image_tovar)
+
+# print (name_tovar)
+# print (description_tovar)
+# print (url)
+# pyperclip.copy (name_tovar)
+pyperclip.copy('<div class="content__attention"><div class="attention__title">Рекомендуем:</div><div class="attention__text"><a href="' + url + '"><strong>' + name_tovar + '</strong> </a></div></div>')
+
